@@ -44,7 +44,6 @@ jobs:
       - name: Verify cluster access
         run: kubectl get nodes
 
-
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f k8s/
