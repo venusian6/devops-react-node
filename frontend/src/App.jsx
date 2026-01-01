@@ -8,7 +8,7 @@ function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     async function api() {
-      const res = await fetch("http://localhost:4000/api/products");
+      const res = await fetch("http://backend:4000/api/products");
       const data = await res.json();
       setProducts(data.products);
     }
