@@ -13,20 +13,20 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
-        image: docker.io/thevenusian/devops-react-node-backend:1.0
-        ports:
-        - containerPort: 4000
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 4000
-          initialDelaySeconds: 10
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 4000
-          initialDelaySeconds: 15
-          periodSeconds: 10
-
+        - name: backend
+          image: docker.io/thevenusian/devops-react-node-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 15
+            periodSeconds: 10
