@@ -4,18 +4,15 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { useEffect } from "react";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000";
-
 function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     async function api() {
-      const res = await fetch(`${API_URL}/api/products`);
+      const res = await fetch("http://localhost:4000/api/products");
       const data = await res.json();
       setProducts(data.products);
     }
     api();
-
   }, []);
 
   return (
