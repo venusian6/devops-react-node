@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { useEffect } from "react";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000";
+const API_URL = "http://localhost:4000" || process.env.REACT_APP_API_URL;
 
 function App() {
   const [products, setProducts] = useState([]);
