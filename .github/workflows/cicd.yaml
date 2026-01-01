@@ -36,7 +36,14 @@ jobs:
       - name: Set Kubeconfig
         run: |
           mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config
+          echo "${KUBE_CONFIG}" | base64 -d > ~/.kube/config
+          chmod 600 ~/.kube/config
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Verify cluster access
+        run: kubectl get nodes
+
 
       - name: Deploy to Kubernetes
         run: |
